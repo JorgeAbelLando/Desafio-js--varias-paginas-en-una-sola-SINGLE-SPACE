@@ -1,24 +1,58 @@
 var header=`
 <header class="flex">
-<h1>
-    <a onclick="mifunsion('hola')" href="#">
+<h1 onclick="home()">
+    <a href="#">
          Daiam 
     </a>
 </h1>
 <nav>
     <ul class="flex">
-      <li><a href="./index.html">Inicio</a></li>
-      <li><a href="#">Nosotros</a></li>
+      <li onclick="home()"><a href="#">Inicio</a></li>
+      <li onclick="about()"><a href="#">Nosotros</a></li>
+      <li onclick="table()"><a href="#">Tabla</a></li>
       <li><a href="./informacion.html">Informacion</a></li>
     </ul>
 </nav>
 <a href="./login.html">Inicio de secion</a>
 </header>`;
 
-var main=`
+mainhome=`
 <main class="flex">
      <h2>Daiam</h2>
      <p>Vende las mejos gitarras</p>
+</main>
+`;
+ mainabout=`
+<main class="flex">
+     <h2>Nosotros</h2>
+     <p>Vende las mejos gitarras</p>
+</main>
+`;
+t=`
+<table>
+<thead>
+    <tr>
+        <th>Apellido</th>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Acciones</th>
+    </tr>   
+</thead>
+<tbody>
+     <tr>
+       <td>Lando</td>
+       <td>Jorge</td>
+       <td>38</td>
+       <td><a href="#">Detalle</a><a href="#">Eliminar</a><a href="#">Editar</a></td>
+     </tr>
+</tbody>
+</table>
+`;
+maintable=`
+<main class="flex">
+     <h2>Tabla</h2>
+     <p>Vende las mejos gitarras</p>
+     ${t}
 </main>
 `;
 
@@ -42,8 +76,16 @@ var footer=`
   &COPY; Creado por Jorge Lando 
    </strong>
 </footer>
-
 `;
-
 var app=document.querySelector("#app");
-    app.innerHTML=header+main+footer;
+    
+function home(){
+    app.innerHTML=header+mainhome+footer;
+};
+function about(){
+    app.innerHTML=header+mainabout+footer;
+};
+function table(){
+    app.innerHTML=header+maintable+footer;
+};
+home();
