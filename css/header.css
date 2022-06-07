@@ -24,7 +24,7 @@ ul{
     display: flex;
 }
 a{
-    padding: 2px;
+    padding: 5px;
     border-radius: 5px;
     text-decoration: none;
     color: white;
@@ -33,6 +33,4 @@ a{
 a:hover{
     background-color:red;
 }
-td>a{
-    color: black;
-}
+

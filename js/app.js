@@ -1,3 +1,29 @@
+const productos=[
+    {
+        apellido:"Lando",
+        nombre:"Jorge",
+        edad:"38",
+        acciones:"toca la guitarra",
+    },
+    {
+        apellido:"Rivera",
+        nombre:"Jhon",
+        edad:"39",
+        acciones:"toca el bajo",
+    },
+    {
+        apellido:"Bulacio",
+        nombre:"Hector",
+        edad:"42",
+        acciones:"bateria",
+    },
+    {
+        apellido:"Perez",
+        nombre:"Jose",
+        edad:"50",
+        acciones:"trompeta",
+    },
+]
 var header=`
 <header class="flex">
 <h1 onclick="home()">
@@ -25,11 +51,11 @@ mainhome=`
  mainabout=`
 <main class="flex">
      <h2>Nosotros</h2>
-     <p>Vende las mejos gitarras</p>
+     <p>Vendemos los mejores productos</p>
 </main>
 `;
 t=`
-<table>
+<table class="table">
 <thead>
     <tr>
         <th>Apellido</th>
@@ -45,13 +71,21 @@ t=`
        <td>38</td>
        <td><a href="#">Detalle</a><a href="#">Eliminar</a><a href="#">Editar</a></td>
      </tr>
+     <tr>
+     <td>Lando</td>
+     <td>Jorge</td>
+     <td>38</td>
+     <td><a href="#">Detalle</a><a href="#">Eliminar</a><a href="#">Editar</a></td>
+   </tr>
 </tbody>
 </table>
 `;
 maintable=`
 <main class="flex">
+<button id="tabla" onclick="diagramar1(productos)">Tabla</button>
+<button id="grilla" onclick="diagramar2(productos)">Grilla</button>
      <h2>Tabla</h2>
-     <p>Vende las mejos gitarras</p>
+     <p>Tabla de clientes</p>
      ${t}
 </main>
 `;
