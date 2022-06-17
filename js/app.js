@@ -1,29 +1,30 @@
-const productos=[
+const clientes=[
     {
         apellido:"Lando",
         nombre:"Jorge",
-        edad:"38",
+        edad:"38 años",
         acciones:"toca la guitarra",
     },
     {
         apellido:"Rivera",
         nombre:"Jhon",
-        edad:"39",
+        edad:"39 años",
         acciones:"toca el bajo",
     },
     {
         apellido:"Bulacio",
-        nombre:"Hector",
-        edad:"42",
-        acciones:"bateria",
+        nombre:"Hector ",
+        edad:"42 años",
+        acciones:"Toca la bateria",
     },
     {
         apellido:"Perez",
-        nombre:"Jose",
-        edad:"50",
-        acciones:"trompeta",
+        nombre:"Jose ",
+        edad:"50 años",
+        acciones:"Toca la trompeta",
     },
 ]
+
 var header=`
 <header class="flex">
 <h1 onclick="home()">
@@ -54,39 +55,14 @@ mainhome=`
      <p>Vendemos los mejores productos</p>
 </main>
 `;
-t=`
-<table class="table">
-<thead>
-    <tr>
-        <th>Apellido</th>
-        <th>Nombre</th>
-        <th>Edad</th>
-        <th>Acciones</th>
-    </tr>   
-</thead>
-<tbody>
-     <tr>
-       <td>Lando</td>
-       <td>Jorge</td>
-       <td>38</td>
-       <td><a href="#">Detalle</a><a href="#">Eliminar</a><a href="#">Editar</a></td>
-     </tr>
-     <tr>
-     <td>Lando</td>
-     <td>Jorge</td>
-     <td>38</td>
-     <td><a href="#">Detalle</a><a href="#">Eliminar</a><a href="#">Editar</a></td>
-   </tr>
-</tbody>
-</table>
-`;
+
 maintable=`
 <main class="flex">
-<button id="tabla" onclick="diagramar1(productos)">Tabla</button>
-<button id="grilla" onclick="diagramar2(productos)">Grilla</button>
-     <h2>Tabla</h2>
-     <p>Tabla de clientes</p>
-     ${t}
+<button id="tabla" onclick="table1()">Tabla</button>
+<button id="grilla" onclick="table2(clientes)">Grilla</button> 
+<div id="cont" >
+   ${tableInicio(clientes)}
+</div>
 </main>
 `;
 
@@ -122,4 +98,81 @@ function about(){
 function table(){
     app.innerHTML=header+maintable+footer;
 };
-home();
+
+function table1(){
+    var cont=document.querySelector('#cont');
+    cont.innerHTML=tableInicio(clientes);
+  };
+
+  var elementosContenido="";
+function tableInicio(array){
+
+    elementosContenido=   ` 
+    
+    
+         <h2>Tabla</h2>
+         <p>Tabla de clientes</p>  
+         <table class="table">
+      <thead>
+          <tr>
+          <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+  `;
+  array.forEach(element=>{
+   elementosContenido=elementosContenido+
+  `
+         <tr>
+              <td class="table-primary">${element.apellido}</td>
+              <td class="table-primary">${element.nombre}</td>
+              <td class="table-primary">${element.edad}</td>
+              <td class="table-primary">${element.acciones}</td>
+         </tr>
+  `
+  });
+  elementosContenido=elementosContenido+`
+      </tbody>
+   </table>
+  
+  `;
+return elementosContenido;
+}
+//table1(clientes);
+  
+  function table2(){
+    var cont=document.querySelector('#cont');
+    cont.innerHTML=createGrilla(clientes);
+  }
+  //table2(clientes);
+
+  function createGrilla(array){
+    elementosContenido=   ` 
+    <h2>Grilla</h2>
+    <p>Contenido de la grilla</p> 
+    <div>
+     `;
+
+    array.forEach(element => {
+        elementosContenido=elementosContenido+
+        `
+            <div class="elementosContenido">
+                <h3>${element.apellido}</h3>
+                <p>${element.nombre}</p> 
+                <p>${element.edad}</p>
+                <p>${element.acciones}</p>
+             </div>
+        `;      
+    }); 
+    elementosContenido=elementosContenido+`
+    </div>; 
+`;
+   return elementosContenido;
+}
+
+  home();
+  
+  

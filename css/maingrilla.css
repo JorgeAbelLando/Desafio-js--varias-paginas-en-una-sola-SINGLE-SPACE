@@ -1,0 +1,28 @@
+h1{
+    color:red;
+    text-align: center;
+}
+
+/*.descendente{
+    flex-direction: row-reverse;
+}*/
+.elementosContenido{
+    border: 1px solid blue;
+    margin: 20px;
+    padding: 20px;
+    background-color: aquamarine;
+    width:150px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: flex-end;
+}
+.elementosContenido>h3{
+    color:black;
+}
+.elementosContenido>p{
+    font-weight: bold;
+}
+.elementosContenido>table>thead>th{
+    font-weight: red;
+}
+
