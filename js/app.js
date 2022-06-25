@@ -38,8 +38,10 @@ var header=`
       <li onclick="about()"><a href="#">Nosotros</a></li>
       <li onclick="table()"><a href="#">Tabla</a></li>
       <li><a href="./informacion.html">Informacion</a></li>
+    
     </ul>
 </nav>
+
 <a href="./login.html">Inicio de secion</a>
 </header>`;
 
@@ -174,5 +176,25 @@ return elementosContenido;
 }
 
   home();
-  
-  
+
+  /*axios({
+ method:"get",
+ url:'procesar.php,
+ responseType:'json,
+ params:{}
+  })
+.then(function(response){})
+.catch(function(error){})*/
+const url="https://raw.githubusercontent.com/BorisTorrejon/BackendReact/main/db.json";
+var petecion= {
+    method:"GET",
+    url:url,
+    resposeType:'json',
+};
+var data="";
+axios(petecion).then(res=>{
+     this.data=res.data ;
+}).catch(error=>{
+    console.log(error);
+});
+console.log(data);
